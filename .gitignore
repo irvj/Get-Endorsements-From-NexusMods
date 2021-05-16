@@ -1,0 +1,4 @@
+data.json
+.DS_store
+cred_lib.py
+__pycache__
