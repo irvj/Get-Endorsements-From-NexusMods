@@ -27,23 +27,20 @@ def get_mod_from_api():
         game_name, mod_id)
     api_headers = {'apikey': api_key}
     response = requests.get(mod_url, headers=api_headers)
-    data = response.json()
-    return data
+    return response.json()
 
 
 def get_date_and_serialize():
     now_utc = datetime.now(timezone.utc)
-    data = now_utc.strftime('%Y-%m-%d-%X')
-    return data
+    return now_utc.strftime('%Y-%m-%d-%X')
 
 
 def increment_id(data):
     filename = os.path.abspath('data.json')
     if os.path.exists(filename):
-        current_id = data['Data'][-1]['ID'] + 1
+        return data['Data'][-1]['ID'] + 1
     else:
-        current_id = 1
-    return current_id
+        return 1
 
 
 def load_json_file():
@@ -51,8 +48,7 @@ def load_json_file():
     filename = os.path.abspath('data.json')
     if os.path.exists(filename):
         with open(filename) as f:
-            data = json.load(f)
-    return data
+            return json.load(f)
 
 
 def save_json_file(new_data):
