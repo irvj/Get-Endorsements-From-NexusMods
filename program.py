@@ -38,8 +38,7 @@ def get_date_and_serialize():
 def increment_id(data):
     filename = os.path.abspath('data.json')
     if os.path.exists(filename):
-        current_id = data['Data'][-1]['ID']
-        current_id += 1
+        current_id = data['Data'][-1]['ID'] + 1
     else:
         current_id = 1
     return current_id
