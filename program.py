@@ -48,7 +48,8 @@ def load_json_file():
     filename = os.path.abspath('data.json')
     if os.path.exists(filename):
         with open(filename) as f:
-            return json.load(f)
+            data = json.load(f)
+    return data
 
 
 def save_json_file(new_data):
